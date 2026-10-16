@@ -2,7 +2,7 @@ import type { Cell, Frame, HighLight, OperationResult, Stats } from "./types";
 
 export class Recorder {
     private frames: Frame[] = [];
-    private stats: Stats = { comparsions: 0, reads: 0, writes: 0};
+    private stats: Stats = { comparisons: 0, reads: 0, writes: 0};
     private name: string;
     private complexity: string;
 
@@ -20,7 +20,7 @@ export class Recorder {
         this.stats.writes++;
     }
     compare(): void{
-        this.stats.comparsions++;
+        this.stats.comparisons++;
     }
 
     // Save a picture of the structure right now

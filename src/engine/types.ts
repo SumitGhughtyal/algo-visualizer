@@ -14,7 +14,7 @@ export interface HighLight {
 }
 
 export interface Stats {
-    comparsions: number;
+    comparisons: number;
     reads: number;
     writes: number;
 }
