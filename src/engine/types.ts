@@ -1,3 +1,6 @@
+// A slot in the array: a number, or null when the slot is empty
+export type Cell = number | null;
+
 export type HighLightKind = 
   | "active"   // element being looked at
   | "compare"  // element being compared 
@@ -18,7 +21,7 @@ export interface Stats {
 
 // One "picture" of the data structure at one moment
 export interface Frame {
-    data : number[];
+    data : Cell[];
     highlights : HighLight[];
     message: string;   // plain-English explanation shown
     stats: Stats;      // running totals up to this frame
