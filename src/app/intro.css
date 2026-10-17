@@ -1,0 +1,47 @@
+/* Page-load motion: the 3D shapes ease in first, then the glass fades up.
+   (The shapes' own movement lives in SceneBackground.tsx.) */
+
+.scene-in {
+  animation: scene-in 1.2s ease-out both;
+}
+
+/* Fades each glass panel up. Opacity is animated on the panel itself and never on a
+   parent of a panel, because a faded parent would switch off the panel's blur. */
+.glass-in {
+  animation: glass-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0.8s) backwards;
+}
+.glass-in-group > :nth-child(1) {
+  --d: 1.1s;
+}
+.glass-in-group > :nth-child(2) {
+  --d: 1.2s;
+}
+.glass-in-group > :nth-child(3) {
+  --d: 1.3s;
+}
+
+@keyframes scene-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes glass-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-in,
+  .glass-in {
+    animation: none;
+  }
+}
