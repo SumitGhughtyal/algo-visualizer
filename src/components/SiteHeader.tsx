@@ -6,7 +6,7 @@ export default function SiteHeader({ active }: { active: "home" | "visualizer" }
     <header className="grid grid-cols-1 gap-6 md:grid-cols-2 md:items-start">
       {/* Left half: big branding */}
       <Link href="/" aria-label={`${APP_NAME} home`}>
-        <span className="brand-name block text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl">
+        <span className="brand-name brand-shimmer block w-fit text-5xl font-bold leading-[1.05] tracking-tight md:text-6xl">
           {APP_NAME_PARTS[0]}
           <br />
           {APP_NAME_PARTS[1]}

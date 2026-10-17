@@ -24,7 +24,7 @@ export default function HomePage() {
       <SceneBackground />
 
       <div className="relative z-10 mx-auto flex min-h-dvh w-full max-w-6xl flex-col gap-6 px-4 py-6">
-        <section className="glass glass-in flex flex-1 flex-col overflow-hidden md:min-h-[32rem] md:flex-none">
+        <section className="glass glass-in lit flex flex-1 flex-col overflow-hidden md:min-h-[32rem] md:flex-none">
           <div className="flex flex-1 flex-col gap-10 p-8 md:p-12">
             <SiteHeader active="home" />
 
@@ -64,7 +64,7 @@ export default function HomePage() {
 
         <section className="glass-in-group grid gap-3 md:grid-cols-3">
           {FEATURES.map((feature) => (
-            <div key={feature.title} className="glass glass-in p-5">
+            <div key={feature.title} className="glass glass-in lit p-5">
               <h2 className="panel-title">{feature.title}</h2>
               <p className="mt-2 text-sm text-zinc-300">{feature.text}</p>
             </div>

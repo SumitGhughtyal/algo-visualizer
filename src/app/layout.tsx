@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Poppins } from "next/font/google";
+import PointerLight from "@/components/PointerLight";
 import "./globals.css";
 import "./theme.css";
 import "./intro.css";
@@ -29,7 +30,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${poppins.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <PointerLight />
+        {children}
+      </body>
     </html>
   );
 }

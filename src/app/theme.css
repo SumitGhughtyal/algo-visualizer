@@ -111,3 +111,63 @@ body {
   color: #6b7680;
   cursor: not-allowed;
 }
+/* ---------- Themed cursor ----------
+   A real arrow (instant, no lag), restyled: mint with a deep-green outline.
+   Over clickable things it turns green. Text fields keep the system text cursor.
+   Colors inside the images: %23e6f4e8 = #e6f4e8 (mint), %230b3d1c = #0b3d1c (deep green),
+   %2358a05e = #58a05e (green). The 48px copies keep it sharp on scaled screens. */
+html {
+  cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%3E%3Cpath%20d='M5%203%20L5%2019.5%20L9.2%2015.6%20L12%2021.5%20L14.7%2020.3%20L11.9%2014.5%20L17.5%2014.3%20Z'%20fill='%23e6f4e8'%20stroke='%230b3d1c'%20stroke-width='1.4'%20stroke-linejoin='round'/%3E%3C/svg%3E") 5 3, auto;
+  cursor: -webkit-image-set(url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%3E%3Cpath%20d='M5%203%20L5%2019.5%20L9.2%2015.6%20L12%2021.5%20L14.7%2020.3%20L11.9%2014.5%20L17.5%2014.3%20Z'%20fill='%23e6f4e8'%20stroke='%230b3d1c'%20stroke-width='1.4'%20stroke-linejoin='round'/%3E%3C/svg%3E") 1x, url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='48'%20height='48'%20viewBox='0%200%2024%2024'%3E%3Cpath%20d='M5%203%20L5%2019.5%20L9.2%2015.6%20L12%2021.5%20L14.7%2020.3%20L11.9%2014.5%20L17.5%2014.3%20Z'%20fill='%23e6f4e8'%20stroke='%230b3d1c'%20stroke-width='1.4'%20stroke-linejoin='round'/%3E%3C/svg%3E") 2x) 5 3, auto;
+  cursor: image-set(url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%3E%3Cpath%20d='M5%203%20L5%2019.5%20L9.2%2015.6%20L12%2021.5%20L14.7%2020.3%20L11.9%2014.5%20L17.5%2014.3%20Z'%20fill='%23e6f4e8'%20stroke='%230b3d1c'%20stroke-width='1.4'%20stroke-linejoin='round'/%3E%3C/svg%3E") 1x, url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='48'%20height='48'%20viewBox='0%200%2024%2024'%3E%3Cpath%20d='M5%203%20L5%2019.5%20L9.2%2015.6%20L12%2021.5%20L14.7%2020.3%20L11.9%2014.5%20L17.5%2014.3%20Z'%20fill='%23e6f4e8'%20stroke='%230b3d1c'%20stroke-width='1.4'%20stroke-linejoin='round'/%3E%3C/svg%3E") 2x) 5 3, auto;
+}
+
+a,
+button,
+summary,
+select,
+[role="button"],
+input[type="range"],
+input[type="checkbox"],
+input[type="radio"] {
+  cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%3E%3Cpath%20d='M5%203%20L5%2019.5%20L9.2%2015.6%20L12%2021.5%20L14.7%2020.3%20L11.9%2014.5%20L17.5%2014.3%20Z'%20fill='%2358a05e'%20stroke='%23e6f4e8'%20stroke-width='1.4'%20stroke-linejoin='round'/%3E%3C/svg%3E") 5 3, pointer;
+  cursor: -webkit-image-set(url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%3E%3Cpath%20d='M5%203%20L5%2019.5%20L9.2%2015.6%20L12%2021.5%20L14.7%2020.3%20L11.9%2014.5%20L17.5%2014.3%20Z'%20fill='%2358a05e'%20stroke='%23e6f4e8'%20stroke-width='1.4'%20stroke-linejoin='round'/%3E%3C/svg%3E") 1x, url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='48'%20height='48'%20viewBox='0%200%2024%2024'%3E%3Cpath%20d='M5%203%20L5%2019.5%20L9.2%2015.6%20L12%2021.5%20L14.7%2020.3%20L11.9%2014.5%20L17.5%2014.3%20Z'%20fill='%2358a05e'%20stroke='%23e6f4e8'%20stroke-width='1.4'%20stroke-linejoin='round'/%3E%3C/svg%3E") 2x) 5 3, pointer;
+  cursor: image-set(url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='24'%20height='24'%20viewBox='0%200%2024%2024'%3E%3Cpath%20d='M5%203%20L5%2019.5%20L9.2%2015.6%20L12%2021.5%20L14.7%2020.3%20L11.9%2014.5%20L17.5%2014.3%20Z'%20fill='%2358a05e'%20stroke='%23e6f4e8'%20stroke-width='1.4'%20stroke-linejoin='round'/%3E%3C/svg%3E") 1x, url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='48'%20height='48'%20viewBox='0%200%2024%2024'%3E%3Cpath%20d='M5%203%20L5%2019.5%20L9.2%2015.6%20L12%2021.5%20L14.7%2020.3%20L11.9%2014.5%20L17.5%2014.3%20Z'%20fill='%2358a05e'%20stroke='%23e6f4e8'%20stroke-width='1.4'%20stroke-linejoin='round'/%3E%3C/svg%3E") 2x) 5 3, pointer;
+}
+
+/* ---------- Edge light that follows the mouse ----------
+   Add the "lit" class to a glass panel. PointerLight.tsx feeds it --x and --y. */
+.lit::before,
+.lit::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: inherit;
+  opacity: var(--lit-on, 0);
+  transition: opacity 0.4s ease;
+}
+
+/* A soft light inside the panel */
+.lit::before {
+  inset: 0;
+  background: radial-gradient(
+    360px circle at var(--x, -999px) var(--y, -999px),
+    rgba(88, 160, 94, 0.1),
+    transparent 60%
+  );
+}
+
+/* A brighter light along the edge only */
+.lit::after {
+  inset: -1px;
+  padding: 1px;
+  background: radial-gradient(
+    260px circle at var(--x, -999px) var(--y, -999px),
+    rgba(143, 209, 138, 0.7),
+    transparent 65%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}

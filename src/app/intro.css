@@ -45,3 +45,132 @@
     animation: none;
   }
 }
+
+/* ---------- Wordmark: a slow, seamless shimmer ----------
+   The light band sits in the middle third of a 300%-wide gradient. At 0% and 100% of the
+   cycle only the plain end thirds are visible, so the loop restarts invisibly. */
+.brand-shimmer {
+  background-image:
+    linear-gradient(
+      105deg,
+      transparent 0%,
+      transparent 40%,
+      rgba(196, 246, 204, 0.7) 50%,
+      transparent 60%,
+      transparent 100%
+    ),
+    linear-gradient(180deg, #52a058 0%, #3b7d41 100%);
+  background-size: 300% 100%, 100% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: brand-shimmer 14s ease-in-out infinite;
+}
+
+@keyframes brand-shimmer {
+  0%,
+  12% {
+    background-position: 100% 0, 0 0;
+  }
+  62%,
+  100% {
+    background-position: 0% 0, 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand-shimmer {
+    animation: none;
+  }
+}
+
+/* ---------- Custom cursor: dot and trailing ring ---------- */
+.cursor {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.cursor[data-visible="true"] {
+  opacity: 1;
+}
+/* Over text fields, hand the cursor back to the system's text cursor */
+.cursor[data-text="true"] {
+  opacity: 0;
+}
+
+.cursor-follow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+}
+
+.cursor-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: var(--green-bright);
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.cursor-ring {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border-radius: 50%;
+  border: 1px solid rgba(88, 160, 94, 0.7);
+  background: rgba(68, 139, 73, 0);
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Hover: the ring grows and fills softly; the dot shrinks */
+.cursor[data-hover="true"] .cursor-ring {
+  transform: scale(1.55);
+  background: rgba(68, 139, 73, 0.14);
+  border-color: rgba(120, 200, 130, 0.9);
+}
+.cursor[data-hover="true"] .cursor-dot {
+  transform: scale(0.5);
+}
+
+/* Press: the ring squeezes */
+.cursor[data-press="true"] .cursor-ring {
+  transform: scale(0.82);
+}
+.cursor[data-hover="true"][data-press="true"] .cursor-ring {
+  transform: scale(1.3);
+}
+
+/* Hide the system cursor only once the custom one is running */
+html.has-custom-cursor,
+html.has-custom-cursor * {
+  cursor: none !important;
+}
+html.has-custom-cursor
+  :is(
+    input:not([type="range"]):not([type="checkbox"]):not([type="radio"]),
+    textarea,
+    [contenteditable="true"]
+  ) {
+  cursor: text !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-ring,
+  .cursor-dot {
+    transition: none;
+  }
+}
