@@ -174,3 +174,98 @@ html.has-custom-cursor
     transition: none;
   }
 }
+
+/* ---------- Home hero: live mini visualizer ---------- */
+/* Three nested layers, because each needs its own transform:
+   slot = glides to its position, pop = appears when it mounts, cell = highlight lift */
+.demo-slot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3rem;
+  height: 3rem;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.demo-pop {
+  width: 100%;
+  height: 100%;
+  animation: demo-pop 0.4s ease-out both;
+}
+@keyframes demo-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.demo-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition:
+    transform 0.35s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* A cell being moved or looked at */
+.demo-cell[data-kind="active"],
+.demo-cell[data-kind="compare"] {
+  transform: translateY(-4px);
+  background: rgba(68, 139, 73, 0.22);
+  border-color: rgba(120, 200, 130, 0.8);
+  box-shadow: 0 0 18px rgba(68, 139, 73, 0.45);
+}
+
+/* The new value, or a found value */
+.demo-cell[data-kind="inserted"],
+.demo-cell[data-kind="found"] {
+  transform: translateY(-4px) scale(1.06);
+  background: rgba(88, 160, 94, 0.42);
+  border-color: #8fd18a;
+  box-shadow: 0 0 22px rgba(88, 160, 94, 0.6);
+}
+
+/* A value being deleted */
+.demo-cell[data-kind="removed"] {
+  background: rgba(214, 110, 110, 0.14);
+  border-color: rgba(214, 110, 110, 0.6);
+}
+
+/* An empty slot */
+.demo-cell[data-empty="true"] {
+  background: transparent;
+  border-style: dashed;
+  box-shadow: none;
+}
+
+.demo-progress {
+  background: linear-gradient(90deg, rgba(68, 139, 73, 0.2), var(--green-bright));
+  transition: width 0.6s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-slot,
+  .demo-cell,
+  .demo-progress {
+    transition: none;
+  }
+  .demo-pop {
+    animation: none;
+  }
+}
